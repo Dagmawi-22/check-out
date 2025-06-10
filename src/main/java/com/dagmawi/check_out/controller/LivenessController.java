@@ -1,4 +1,4 @@
-package com.dagmawi.check_out.controllers;
+package com.dagmawi.check_out.controller;
 
 import com.dagmawi.check_out.service.LivenessService;
 import org.springframework.beans.factory.annotation.Autowired;
