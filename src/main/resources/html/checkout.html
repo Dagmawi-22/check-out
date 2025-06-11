@@ -7,10 +7,10 @@
     <style>
       * {
         box-sizing: border-box;
-      }
-
-      body {
         margin: 0;
+        padding: 0;
+      }
+      body {
         font-family: "Segoe UI", sans-serif;
         background: #f6f9fc;
         display: flex;
@@ -18,92 +18,75 @@
         justify-content: center;
         height: 100vh;
       }
-
       .checkout-container {
         background: #fff;
-        padding: 2.5rem 2rem;
-        max-width: 380px;
-        width: 100%;
+        padding: 2rem;
         border-radius: 12px;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 360px;
         text-align: center;
       }
-
-      .checkout-container h1 {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-        color: #333;
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+        color: #222;
       }
-
-      .checkout-container p {
+      p {
         color: #666;
+        margin-bottom: 1.2rem;
         font-size: 0.95rem;
-        margin-bottom: 1.5rem;
       }
-
-      .amount-group {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-bottom: 1.5rem;
-      }
-
-      input[type="number"] {
-        padding: 0.8rem;
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
         border: 1px solid #ccc;
         border-radius: 8px;
         font-size: 1rem;
-        width: 100%;
-        transition: border 0.2s;
+        transition: 0.2s;
       }
-
-      input[type="number"]:focus {
+      input:focus {
         border-color: #0070f3;
         outline: none;
       }
-
       button {
         width: 100%;
-        padding: 0.9rem;
-        background-color: #0070f3;
+        padding: 0.8rem;
+        background: #0070f3;
         color: #fff;
-        font-size: 1rem;
         border: none;
         border-radius: 8px;
+        font-size: 1rem;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        transition: 0.3s;
       }
-
       button:hover {
-        background-color: #0059c9;
+        background: #0059c9;
       }
-
       .footer-note {
-        margin-top: 1.5rem;
-        font-size: 0.85rem;
+        margin-top: 1rem;
+        font-size: 0.8rem;
         color: #aaa;
       }
     </style>
   </head>
   <body>
     <div class="checkout-container">
-      <h1>CheckOut</h1>
-      <p>Enter the amount you'd like to pay. Fast and secure.</p>
-
+      <h1>Checkout</h1>
+      <p>Fast and secure payment.</p>
       <form action="/api/checkout" method="POST">
-        <div class="amount-group">
-          <input
-            type="number"
-            name="amount"
-            placeholder="Enter amount (1 - 1000)"
-            min="1"
-            max="1000"
-            required
-          />
-        </div>
-        <button type="submit">Proceed to Pay</button>
+        <input type="text" name="name" placeholder="Your name" required />
+        <input
+          type="number"
+          name="amount"
+          placeholder="Amount (1 - 1000)"
+          min="1"
+          max="1000"
+          required
+        />
+        <button type="submit">Pay Now</button>
       </form>
-
       <div class="footer-note">SSL Secured • Powered by CheckOut</div>
     </div>
   </body>
