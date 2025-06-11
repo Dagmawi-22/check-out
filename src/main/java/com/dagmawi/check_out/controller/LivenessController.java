@@ -20,14 +20,14 @@ public class LivenessController {
 
     @GetMapping("/liveness")
     public ResponseEntity<Map<String, Object>> livenessCheck() {
-        Map<String, Object> response = new HashMap<>();
-        response.put("status", livenessService.getStatus());
-        response.put("message", livenessService.getMessage());
+        Map<String, Object> response = Map.of(
+            "status", livenessService.getStatus(),
+            "message", livenessService.getMessage()
+        );
 
-        if (livenessService.isAlive()) {
-            return ResponseEntity.ok(response);
-        } else {
-            return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(response);
-        }
+        return ResponseEntity
+            .status(livenessService.isAlive() ? HttpStatus.OK : HttpStatus.SERVICE_UNAVAILABLE)
+            .body(response);
     }
+
 }
