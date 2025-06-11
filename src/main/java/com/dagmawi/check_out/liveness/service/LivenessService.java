@@ -1,5 +1,5 @@
 
-package com.dagmawi.check_out.service;
+package com.dagmawi.check_out.liveness.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import javax.sql.DataSource;
@@ -33,5 +33,8 @@ public class LivenessService {
 
     public String getMessage() {
         return isAlive ? "I'm alive!" : "Service is unavailable";
+    }
+    public String getDbStatusMessage() {
+        return isDatabaseConnected() ? "Database connected!" : "Failed to connect to db.";
     }
 }

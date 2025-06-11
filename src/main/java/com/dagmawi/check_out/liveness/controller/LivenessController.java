@@ -1,9 +1,10 @@
-package com.dagmawi.check_out.controller;
+package com.dagmawi.check_out.liveness.controller;
 
-import com.dagmawi.check_out.service.LivenessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+
+import com.dagmawi.check_out.liveness.service.LivenessService;
 
 import java.util.*;
 
@@ -31,11 +32,13 @@ public class LivenessController {
     }
     
     @GetMapping("/db")
-    public ResponseEntity<String> checkDatabase() {
-        if (livenessService.isDatabaseConnected()) {
-            return ResponseEntity.ok("Database is connected");
-        } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Database is down");
-        }
+    public ResponseEntity<Map<String, Object>> checkDatabase() {
+         Map<String, Object> response = Map.of(
+            "status", livenessService.isDatabaseConnected(),
+            "message", livenessService.getDbStatusMessage()
+        );
+       return ResponseEntity
+            .status(livenessService.isDatabaseConnected() ? HttpStatus.OK : HttpStatus.SERVICE_UNAVAILABLE)
+            .body(response);
     }
 }
