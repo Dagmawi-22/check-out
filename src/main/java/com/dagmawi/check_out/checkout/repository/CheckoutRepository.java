@@ -1,8 +1,10 @@
-package com.dagmawi.check_out.repository;
+package com.dagmawi.check_out.checkout.repository;
 
 import org.springframework.stereotype.Repository;
+
+import com.dagmawi.check_out.checkout.model.Checkout;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.dagmawi.check_out.model.Checkout;
 
 @Repository
 public interface CheckoutRepository extends JpaRepository<Checkout, Long> {
