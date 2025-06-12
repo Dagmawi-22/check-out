@@ -77,6 +77,7 @@
       <p>Fast and secure payment.</p>
       <form action="/api/v1/payment/checkout" method="POST">
         <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Email" required />
         <input
           type="number"
           name="amount"
@@ -85,7 +86,6 @@
           max="1000"
           required
         />
-        <input type="email" name="email" placeholder="Email" required />
         <button type="submit">Pay Now</button>
       </form>
       <div class="footer-note">SSL Secured • Powered by CheckOut</div>
