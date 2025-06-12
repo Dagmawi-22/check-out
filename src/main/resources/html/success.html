@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Initialized</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f6f9fc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .message-container {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+        color: #28a745;
+      }
+      p {
+        color: #444;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+      }
+      a {
+        display: inline-block;
+        padding: 0.7rem 1.2rem;
+        background: #0070f3;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: background 0.3s;
+      }
+      a:hover {
+        background: #0059c9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="message-container">
+      <h1>Payment Successfully Initialized</h1>
+      <p>We will update you on your email. Stay tuned!</p>
+      <a href="/api/v1/payment/initiate">Pay Another</a>
+    </div>
+  </body>
+</html>

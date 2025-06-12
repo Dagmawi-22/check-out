@@ -19,6 +19,8 @@ public class Checkout {
 
     private String name;
 
+    private String email;
+
     @Enumerated(EnumType.STRING)
     private CheckoutStatus status = CheckoutStatus.PENDING;
 
@@ -42,6 +44,14 @@ public class Checkout {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
