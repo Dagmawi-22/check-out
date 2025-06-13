@@ -14,7 +14,6 @@ public class Checkout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Double amount;
 
     private String name;
